@@ -1,5 +1,6 @@
 import { createMcpHandler } from "@vercel/mcp-adapter";
 import { z } from "zod";
+import { withMcpAuth } from "./auth-wrapper";
 
 async function verifyToken(req: Request) {
   const authHeader = req.headers.get('authorization');
@@ -9,7 +10,7 @@ async function verifyToken(req: Request) {
   return { token: authHeader.split(' ')[1] };
 }
 
-const handler = async (req: Request) => {
+const mcpHandler = async (req: Request) => {
   const session = await verifyToken(req);
 
   if (!session) {
@@ -49,5 +50,7 @@ const handler = async (req: Request) => {
     }
   )(req);
 };
+
+const handler = withMcpAuth(mcpHandler, verifyToken);
 
 export { handler as GET, handler as POST, handler as DELETE };
