@@ -1,13 +1,13 @@
 export default function Home() {
-    return (
-        <div>
-            <h1>MCP for Next.js</h1>
-            <p>Protocol is mounted below /.</p>
-            <p>
-                <a href="https://vercel.com/templates/next.js/model-context-protocol-mcp-with-next-js">
-                    Clone template on Vercel
-                </a>
-            </p>
-        </div>
-    );
-} 
+  return (
+    <div>
+      <h1>MCP for Next.js</h1>
+      <p>Protocol is mounted below /.</p>
+      <p>
+        <a href="https://vercel.com/templates/next.js/model-context-protocol-mcp-with-next-js">
+          Clone template on Vercel
+        </a>
+      </p>
+    </div>
+  );
+}
